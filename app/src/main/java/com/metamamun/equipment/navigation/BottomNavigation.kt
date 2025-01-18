@@ -3,6 +3,7 @@ package com.metamamun.equipment.navigation
 import androidx.annotation.DrawableRes
 import com.metamamun.equipment.R
 
+
 enum class BottomNavigation(
     @DrawableRes val icon: Int,
     val route: Screen?,
@@ -13,23 +14,23 @@ enum class BottomNavigation(
         Screen.HomeScreen,
         "Home"
     ),
-    VIDEOS(
-        R.drawable.ic_diet,
-        Screen.VideosScreen,
-        "Diet"
-    ),
+//    VIDEOS(
+//        R.drawable.ic_diet,
+//        Screen.VideosScreen,
+//        "Diet"
+//    ),
 //    ACTION_BUTTON(
 //        0,
 //        null,
 //        "Live TV"
 //    ),
     MYP_PLAN(
-        R.drawable.ic_plan,
+        R.drawable.ic_myplan,
         Screen.MyPlanScreen,
         "My Plan"
     ),
     SEARCH(
-        R.drawable.ic_menu,
+        R.drawable.ic_settings,
         Screen.MenuScreen,
         "Menu"
     ),

@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:468864975244:android:9f8f0b927c5e50090716a9",
         "android_client_info": {
-          "package_name": "com.lazydeveloper.fit4u2"
+          "package_name": "com.metamamun.equipment"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "468864975244-dah1l2tj3fvum6skimagdqvim4impsqu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.lazydeveloper.fit4u2",
+            "package_name": "com.metamamun.equipment",
             "certificate_hash": "042d4e789264ff19a4385065762088b471fcfe35"
           }
         },
@@ -25,7 +25,7 @@
           "client_id": "468864975244-n6kkrfqrg0ta6f5rltglfjr1io6cgco4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.lazydeveloper.fit4u2",
+            "package_name": "com.metamamun.equipment",
             "certificate_hash": "9e4d1e8b98d03b3212c339e9598b7fa12ea171fb"
           }
         },

@@ -6,6 +6,8 @@ import coil.request.ImageRequest
 import coil.size.Precision
 import coil.size.Size
 import com.metamamun.equipment.R
+
+
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

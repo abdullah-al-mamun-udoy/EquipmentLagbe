@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.lazydeveloper.fit4u2.lib"
+    namespace = "com.metamamun.equipment.lib"
     compileSdk = libs.versions.compileSdkVersion.get().toInt()
     
     defaultConfig {

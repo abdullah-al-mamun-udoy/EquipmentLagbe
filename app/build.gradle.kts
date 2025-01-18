@@ -17,11 +17,11 @@ plugins {
 }
 
 android {
-    namespace = "com.lazydeveloper.fit4u2"
+    namespace = "com.metamamun.equipment"
     compileSdk = libs.versions.compileSdkVersion.get().toInt()
     
     defaultConfig {
-        applicationId = "com.lazydeveloper.fit4u2"
+        applicationId = "com.metamamun.equipment"
         minSdk = libs.versions.minSdkVersion.get().toInt()
         targetSdk = libs.versions.targetSdkVersion.get().toInt()
         versionCode = (project.findProperty("BUILD_NUMBER")?.toString()?.toIntOrNull() ?: 0).coerceAtLeast(libs.versions.appVersionCode.get().toInt())

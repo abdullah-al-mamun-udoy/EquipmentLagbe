@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -187,11 +188,14 @@ fun SplashScreenBody() {
                 .align(Alignment.Center)
         )
         CustomText(
-            text = "Fit4u2",
-            color = colorResource(id = R.color.app_color),
+            text = "Equipment Lagbe",
+            color = colorResource(id = R.color.black),
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier
                 .padding(top = 150.dp)
+                .align(alignment = Alignment.Center),
+            fontWeight = FontWeight.Bold
+
         )
     }
 }

@@ -52,6 +52,20 @@ fun OnboardingPager(
             )
             2 -> ScreenThreeContent(
                 onClick = {
+                    coroutineScope.launch {
+                        pagerState.animateScrollToPage(3)
+                    }
+                }
+            )
+            3 -> ScreenFourContent(
+                onClick = {
+                    coroutineScope.launch {
+                        pagerState.animateScrollToPage(4)
+                    }
+                }
+            )
+            4-> ScreenFiveContent(
+                onClick = {
                     navController?.navigate(Graph.HomeGraph) {
                         popUpTo(Screen.OnboardingScreen) {
                             inclusive = true
@@ -76,7 +90,7 @@ fun ScreenOneContent(
             .clip(RoundedCornerShape(12.dp)),
         contentAlignment = Alignment.Center
     ) {
-        CustomImage(imageId = R.drawable.sp_1,
+        CustomImage(imageId = R.drawable.ic_sp1,
             contentDescription = "Onboarding Image",
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.FillBounds)
@@ -96,7 +110,7 @@ fun ScreenTwoContent(
             .clip(RoundedCornerShape(12.dp)),
         contentAlignment = Alignment.Center
     ) {
-        CustomImage(imageId = R.drawable.sp_2,
+        CustomImage(imageId = R.drawable.ic_sp2,
             contentDescription = "Onboarding Image",
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.FillBounds
@@ -117,7 +131,49 @@ fun ScreenThreeContent(
             .clip(RoundedCornerShape(12.dp)),
         contentAlignment = Alignment.Center
     ) {
-        CustomImage(imageId = R.drawable.sp_3,
+        CustomImage(imageId = R.drawable.ic_sp3,
+            contentDescription = "Onboarding Image",
+            modifier = Modifier
+                .fillMaxSize()
+                .align(Alignment.BottomCenter),
+            contentScale = ContentScale.FillBounds)
+    }
+}
+@Preview
+@Composable
+fun ScreenFourContent(
+    onClick: () -> Unit = {}
+){
+    val color = MaterialTheme.colorScheme
+    val typo = MaterialTheme.typography
+    Box(
+        modifier = Modifier.fillMaxSize()
+            .padding(padding.large)
+            .clip(RoundedCornerShape(12.dp)),
+        contentAlignment = Alignment.Center
+    ) {
+        CustomImage(imageId = R.drawable.ic_sp_4,
+            contentDescription = "Onboarding Image",
+            modifier = Modifier
+                .fillMaxSize()
+                .align(Alignment.BottomCenter),
+            contentScale = ContentScale.FillBounds)
+    }
+}
+@Preview
+@Composable
+fun ScreenFiveContent(
+    onClick: () -> Unit = {}
+){
+    val color = MaterialTheme.colorScheme
+    val typo = MaterialTheme.typography
+    Box(
+        modifier = Modifier.fillMaxSize()
+            .padding(padding.large)
+            .clip(RoundedCornerShape(12.dp)),
+        contentAlignment = Alignment.Center
+    ) {
+        CustomImage(imageId = R.drawable.ic_sp5,
             contentDescription = "Onboarding Image",
             modifier = Modifier
                 .fillMaxSize()

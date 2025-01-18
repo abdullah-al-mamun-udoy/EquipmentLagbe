@@ -24,6 +24,10 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -44,6 +48,7 @@ import com.metamamun.equipment.navigation.Screen
 import com.metamamun.equipment.preference.SessionPreference
 import com.metamamun.equipment.presentation.composables.CustomImage
 import com.metamamun.equipment.presentation.composables.CustomImageAsync
+import com.metamamun.equipment.presentation.composables.CustomImageTint
 import com.metamamun.equipment.presentation.composables.CustomText
 import com.metamamun.equipment.ui.theme.padding
 
@@ -287,29 +292,23 @@ fun TopAppBarTwo(
 }
 
 @Composable
-fun BottomAppBar(navController: NavHostController? = null){
+fun BottomAppBar(navController: NavHostController? = null) {
     AnimatedVisibility(
         visible = true,
-        enter = slideInVertically(
-            initialOffsetY = { it / 2 }
-        ),
-        exit = slideOutVertically(
-            targetOffsetY = { it / 2 }
-        )
+        enter = slideInVertically(initialOffsetY = { it / 2 }),
+        exit = slideOutVertically(targetOffsetY = { it / 2 })
     ) {
         if (navController != null) {
-            StandardBottomAppBar(
-                navController = navController,
-            )
+            StandardBottomAppBar(navController = navController)
         }
     }
 }
 
 @Preview
 @Composable
-fun StandardBottomAppBar(
-    navController: NavController? = null,
-) {
+fun StandardBottomAppBar(navController: NavController? = null) {
+    var selectedItemIndex by remember { mutableStateOf(0) } // Track selected index
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -319,17 +318,19 @@ fun StandardBottomAppBar(
     ) {
         Row(
             modifier = Modifier
-                .fillMaxSize(),
+                .fillMaxSize()
+                .padding(horizontal = 20.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            BottomNavigation.entries.forEach { entry ->
+            BottomNavigation.entries.forEachIndexed { index, entry ->  // Use forEachIndexed for index tracking
                 if (entry.icon != 0 && entry.route != null) {
                     Column(
                         modifier = Modifier
                             .size(padding.extraLarge)
                             .clip(CircleShape)
                             .clickable {
+                                selectedItemIndex = index
                                 navController?.popBackStack(Screen.MenuScreen, true)
                                 navController?.navigate(entry.route) {
                                     popUpTo(navController.graph.findStartDestination().id) {
@@ -342,16 +343,23 @@ fun StandardBottomAppBar(
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        CustomImage(
+                        CustomImageTint(
                             imageId = entry.icon,
                             contentDescription = null,
-                            modifier = Modifier.size(24.dp)
+                            modifier = Modifier.size(24.dp),
+                            tint = if (selectedItemIndex == index)
+                                colorResource(R.color.app_color)  // Selected color
+                            else
+                                colorResource(R.color.black)  // Default color
                         )
 
                         Spacer(modifier = Modifier.height(padding.extraSmall))
                         CustomText(
                             text = entry.title,
-                            color = colorResource(id = R.color.black),
+                            color = if (selectedItemIndex == index)
+                                colorResource(R.color.app_color)
+                            else
+                                colorResource(R.color.black),
                             style = MaterialTheme.typography.labelSmall
                         )
                     }

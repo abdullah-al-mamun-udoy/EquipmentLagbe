@@ -49,8 +49,8 @@ fun OnboardingScreen(
     preference: SessionPreference? = null
 ) {
     val context = LocalContext.current
-    val pageCount = 3
-    val pagerState = rememberPagerState(pageCount = { 3 })
+    val pageCount = 5
+    val pagerState = rememberPagerState(pageCount = { 5 })
     val coroutineScope = rememberCoroutineScope()
 
     // Get Firestore instance
@@ -75,7 +75,7 @@ fun OnboardingScreen(
                 .padding(horizontal = 20.dp)
         )
         CustomImage(
-            imageId = R.drawable.ic_logo_with_title_c,
+            imageId = R.drawable.ic_logo,
             contentDescription = "App Logo",
             modifier = Modifier
                 .height(50.dp)
